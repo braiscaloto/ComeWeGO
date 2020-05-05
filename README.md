@@ -1,2 +1,2 @@
 # Twittor
-Social network based in Twitter developed with Golang (GO), React and MongoDB
+Social network based on Twitter developed with Golang (GO), React and MongoDB
