@@ -1,2 +1,2 @@
-# ComeWeGO
-Social network developed with Golang (GO), React and MongoDB
+# Twittor
+Social network based in Twitter developed with Golang (GO), React and MongoDB
