@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/braiscaloto/Twittor/bd"
+	bd "github.com/braiscaloto/Twittor/DB"
 	"github.com/braiscaloto/Twittor/handlers"
 )
 
