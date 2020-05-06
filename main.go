@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	db "github.com/braiscaloto/Twittor/DB"
-	"github.com/braiscaloto/Twittor/handlers"
+	db "github.com/braiscaloto/Twittor-backend/DB"
+	"github.com/braiscaloto/Twittor-backend/handlers"
 )
 
 func main() {
