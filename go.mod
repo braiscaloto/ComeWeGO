@@ -1,4 +1,4 @@
-module github.com/braiscaloto/Twittor
+module github.com/braiscaloto/Twittor-backend
 
 go 1.14
 
