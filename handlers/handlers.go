@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/braiscaloto/Twittor-backend/middlew"
 	"github.com/braiscaloto/Twittor-backend/routers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
@@ -15,9 +16,9 @@ func Handlers() {
 
 	router := mux.NewRouter()
 
-	router.HandleFunc("/register", middlewares.CheckDB(routers.Register)).Methods("POST")
-	router.HandleFunc("/login", middlewares.CheckDB(routers.Login)).Methods("POST")
-	router.HandleFunc("/viewprofile", middlewares.CheckDB()).Methods("POST")
+	router.HandleFunc("/register", middlew.CheckDB(routers.Register)).Methods("POST")
+	router.HandleFunc("/login", middlew.CheckDB(routers.Login)).Methods("POST")
+	router.HandleFunc("/viewprofile", middlew.CheckDB(middlew.ValidateJWT(routers.ViewProfile))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

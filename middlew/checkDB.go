@@ -1,4 +1,4 @@
-package middelwares
+package middlew
 
 import (
 	"net/http"
