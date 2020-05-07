@@ -6,6 +6,7 @@ import (
 	"time"
 
 	db "github.com/braiscaloto/Twittor-backend/DB"
+	"github.com/braiscaloto/Twittor-backend/jwt"
 	"github.com/braiscaloto/Twittor-backend/models"
 )
 
@@ -30,7 +31,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Invalid user or/and password", 400)
 		return
 	}
-	jwtKey, err := jwt.GenerateJWT(document)
+	jwtKey, err := jwt.GenerateJTW(document)
 	if err != nil {
 		http.Error(w, "Error with token generation"+err.Error(), 400)
 		return
@@ -44,8 +45,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(resp)
 
-	//Genero una cookie, no la voy a usar pero dejamos la opción reflejada
-
+	//Genero una cookie, no la voy a usar pero dejo la opción reflejada para posibles mejoras
 	expirationTime := time.Now().Add(24 * time.Hour)
 	http.SetCookie(w, &http.Cookie{
 		Name:    "token",
