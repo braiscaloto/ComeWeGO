@@ -20,8 +20,8 @@ func InsertoTweet(t models.GraboTweet) (string, bool, error) {
 
 	registro := bson.M{
 		"userid":  t.UserID,
-		"mensaje": t.Mensaje,
-		"fecha":   t.Fecha,
+		"message": t.Message,
+		"date":    t.Date,
 	}
 	result, err := col.InsertOne(ctx, registro)
 	if err != nil {

@@ -20,8 +20,8 @@ func Handlers() {
 	router.HandleFunc("/login", middlew.CheckDB(routers.Login)).Methods("POST")
 	router.HandleFunc("/viewprofile", middlew.CheckDB(middlew.ValidateJWT(routers.ViewProfile))).Methods("GET")
 	router.HandleFunc("/modifyProfile", middlew.CheckDB(middlew.ValidateJWT(routers.ModifyProfile))).Methods("PUT")
-	/*router.HandleFunc("/tweet", middlew.CheckDB(middlew.ValidateJWT(routers.PutTweet))).Methods("POST")
-	router.HandleFunc("/readTweets", middlew.CheckDB(middlew.ValidateJWT(routers.ReadTweets))).Methods("GET")
+	router.HandleFunc("/tweet", middlew.CheckDB(middlew.ValidateJWT(routers.PostTweet))).Methods("POST")
+	/*router.HandleFunc("/readTweets", middlew.CheckDB(middlew.ValidateJWT(routers.ReadTweets))).Methods("GET")
 	router.HandleFunc("/deleteTweet", middlew.CheckDB(middlew.ValidateJWT(routers.DeleteTweet))).Methods("DELETE")
 
 	router.HandleFunc("/uploadAvatar", middlew.CheckDB(middlew.ValidateJWT(routers.UploadAvatar))).Methods("POST")
