@@ -10,14 +10,14 @@ import (
 )
 
 /*GraboTweet permite grabar el tweet en la base de datos */
-func PutTweet(w http.ResponseWriter, r *http.Request) {
+func PostTweet(w http.ResponseWriter, r *http.Request) {
 	var message models.Tweet
 	err := json.NewDecoder(r.Body).Decode(&message)
 
 	registro := models.GraboTweet{
 		UserID:  IDUser,
-		Mensaje: message.Message,
-		Fecha:   time.Now(),
+		Message: message.Message,
+		Date:    time.Now(),
 	}
 
 	_, status, err := db.InsertoTweet(registro)
