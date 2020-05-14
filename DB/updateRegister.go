@@ -43,7 +43,7 @@ func UpdateRegister(u models.User, ID string) (bool, error) {
 	}
 
 	updtString := bson.M{
-		"$Set": register,
+		"$set": register,
 	}
 	objID, _ := primitive.ObjectIDFromHex(ID)
 	filter := bson.M{"_id": bson.M{"$eq": objID}}
