@@ -35,12 +35,12 @@ func ProcessToken(tk string) (*models.Claim, bool, string, error) {
 		return myKey, nil
 	})
 	if err == nil {
-		_, locatedUser, ID := db.UserAlreadyExists(claims.Email)
+		_, locatedUser, _ := db.UserAlreadyExists(claims.Email)
 		if locatedUser == true {
 			Email = claims.Email
 			IDUser = claims.ID.Hex()
 		}
-		return claims, locatedUser, ID, nil
+		return claims, locatedUser, IDUser, nil
 	}
 
 	if !tkn.Valid {
