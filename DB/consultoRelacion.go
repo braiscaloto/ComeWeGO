@@ -9,8 +9,8 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-/*Consultorelacion nos muestra las relaciones existentes entre usuarios*/
-func Consultorelacion(t models.Relacion) (bool, error) {
+/*ConsultaRelacion nos muestra las relaciones existentes entre usuarios*/
+func ConsultaRelacion(t models.Relacion) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
 	defer cancel()
 
