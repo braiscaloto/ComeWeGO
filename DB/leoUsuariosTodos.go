@@ -15,7 +15,7 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 	ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
 	defer cancel()
 
-	db := MongoCN.Database("twittor")
+	db := MongoCN.Database("Twittor")
 	col := db.Collection("usuarios")
 
 	var results []*models.User
@@ -43,12 +43,12 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 		}
 
 		var r models.Relacion
-		r.UserID = ID
-		r.UserRelacionID = s.ID.Hex()
+		r.UsuarioID = ID
+		r.UsuarioRelacionID = s.ID.Hex()
 
 		incluir = false
 
-		encontrado, err = ConsultaRelacion(r)
+		encontrado, err = ConsultoRelacion(r)
 		if tipo == "new" && encontrado == false {
 			incluir = true
 		}
@@ -56,7 +56,7 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 			incluir = true
 		}
 
-		if r.UserRelacionID == ID {
+		if r.UsuarioRelacionID == ID {
 			incluir = false
 		}
 

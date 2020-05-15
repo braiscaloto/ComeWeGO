@@ -9,8 +9,8 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-/*ConsultaRelacion nos muestra las relaciones existentes entre usuarios*/
-func ConsultaRelacion(t models.Relacion) (bool, error) {
+/*ConsultoRelacion nos muestra las relaciones existentes entre usuarios*/
+func ConsultoRelacion(t models.Relacion) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
 	defer cancel()
 
@@ -18,8 +18,8 @@ func ConsultaRelacion(t models.Relacion) (bool, error) {
 	col := db.Collection("relacion")
 
 	condicion := bson.M{
-		"usuarioid":         t.UserID,
-		"usuariorelacionid": t.UserRelacionID,
+		"usuarioid":         t.UsuarioID,
+		"usuariorelacionid": t.UsuarioRelacionID,
 	}
 
 	var resultado models.Relacion

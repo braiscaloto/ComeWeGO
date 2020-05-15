@@ -2,7 +2,6 @@ package db
 
 import (
 	"context"
-	"fmt"
 	"time"
 
 	"github.com/braiscaloto/Twittor-backend/models"
@@ -19,20 +18,18 @@ func SearchProfile(ID string) (models.User, error) {
 	db := MongoCN.Database("Twittor")
 	col := db.Collection("usuarios")
 
-	var profile models.User
+	var perfil models.User
 	objID, _ := primitive.ObjectIDFromHex(ID)
 
-	condition := bson.M{
+	condicion := bson.M{
 		"_id": objID,
 	}
 
-	err := col.FindOne(ctx, condition).Decode(&profile)
-	//omitimos que nos devuelva la contraseña
-	profile.Password = ""
+	err := col.FindOne(ctx, condicion).Decode(&perfil)
+	perfil.Password = ""
 	if err != nil {
-		fmt.Println("Register not found" + err.Error())
-		return profile, err
+		return perfil, err
 	}
-	return profile, nil
+	return perfil, nil
 
 }
