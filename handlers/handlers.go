@@ -30,11 +30,12 @@ func Handlers() {
 	router.HandleFunc("/getBanner", middlew.CheckDB(routers.GetBanner)).Methods("GET")
 
 	router.HandleFunc("/altaRelacion", middlew.CheckDB(middlew.ValidateJWT(routers.AltaRelacion))).Methods("POST")
-	/*router.HandleFunc("/bajaRelacion", middlew.CheckDB(middlew.ValidateJWT(routers.BajaRelacion))).Methods("DELETE")
-	router.HandleFunc("/consultaRelacion", middlew.CheckDB(middlew.ValidateJWT(routers.ConsultaRelacion))).Methods("GET")
+	router.HandleFunc("/bajaRelacion", middlew.CheckDB(middlew.ValidateJWT(routers.BajaRelacion))).Methods("DELETE")
+	/*router.HandleFunc("/consultaRelacion", middlew.CheckDB(middlew.ValidateJWT(routers.ConsultaRelacion))).Methods("GET")
 
 	router.HandleFunc("/userList", middlew.CheckDB(middlew.ValidateJWT(routers.UserList))).Methods("GET")
 	router.HandleFunc("/readTweetsFollowers", middlew.CheckDB(middlew.ValidateJWT(routers.ReadTweetsFollowers))).Methods("GET")*/
+
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
