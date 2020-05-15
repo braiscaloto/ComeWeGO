@@ -32,9 +32,9 @@ func Handlers() {
 	router.HandleFunc("/altaRelacion", middlew.CheckDB(middlew.ValidateJWT(routers.AltaRelacion))).Methods("POST")
 	router.HandleFunc("/bajaRelacion", middlew.CheckDB(middlew.ValidateJWT(routers.BajaRelacion))).Methods("DELETE")
 	router.HandleFunc("/consultaRelacion", middlew.CheckDB(middlew.ValidateJWT(routers.ConsultaRelacion))).Methods("GET")
-	/*
-		router.HandleFunc("/userList", middlew.CheckDB(middlew.ValidateJWT(routers.UserList))).Methods("GET")
-		router.HandleFunc("/readTweetsFollowers", middlew.CheckDB(middlew.ValidateJWT(routers.ReadTweetsFollowers))).Methods("GET")*/
+
+	router.HandleFunc("/listaUsuarios", middlew.CheckDB(middlew.ValidateJWT(routers.ListaUsuarios))).Methods("GET")
+	/*	router.HandleFunc("/readTweetsFollowers", middlew.CheckDB(middlew.ValidateJWT(routers.ReadTweetsFollowers))).Methods("GET")*/
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
