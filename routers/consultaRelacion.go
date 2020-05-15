@@ -10,17 +10,15 @@ import (
 
 /*ConsultaRelacion compruebo si existe relación entre dos usuarios*/
 func ConsultaRelacion(w http.ResponseWriter, r *http.Request) {
-
 	ID := r.URL.Query().Get("id")
 
 	var t models.Relacion
-	t.UserID = IDUser
-	t.UserRelacionID = ID
+	t.UsuarioID = IDUser
+	t.UsuarioRelacionID = ID
 
 	var resp models.RespuestaConsultaRelacion
 
-	status, err := db.Consultorelacion(t)
-
+	status, err := db.ConsultoRelacion(t)
 	if err != nil || status == false {
 		resp.Status = false
 	} else {
