@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	db "github.com/braiscaloto/Twittor-backend/DB"
+	"github.com/braiscaloto/Twittor-backend/bd"
 )
 
 /*LeoTweets Leo los tweets */
@@ -28,7 +28,7 @@ func LeoTweets(w http.ResponseWriter, r *http.Request) {
 	}
 
 	pag := int64(pagina)
-	respuesta, correcto := db.LeoTweets(ID, pag)
+	respuesta, correcto := bd.LeoTweets(ID, pag)
 	if correcto == false {
 		http.Error(w, "Error al leer los tweets", http.StatusBadRequest)
 		return

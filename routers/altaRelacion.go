@@ -3,11 +3,11 @@ package routers
 import (
 	"net/http"
 
-	db "github.com/braiscaloto/Twittor-backend/DB"
+	"github.com/braiscaloto/Twittor-backend/bd"
 	"github.com/braiscaloto/Twittor-backend/models"
 )
 
-/*AltaRelacion realiza el registro de la relación en tre usuarios*/
+/*AltaRelacion realiza el registro de la relacion entre usuarios */
 func AltaRelacion(w http.ResponseWriter, r *http.Request) {
 
 	ID := r.URL.Query().Get("id")
@@ -17,10 +17,10 @@ func AltaRelacion(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var t models.Relacion
-	t.UsuarioID = IDUser
+	t.UsuarioID = IDUsuario
 	t.UsuarioRelacionID = ID
 
-	status, err := db.InsertoRelacion(t)
+	status, err := bd.InsertoRelacion(t)
 	if err != nil {
 		http.Error(w, "Ocurrió un error al intentar insertar relación "+err.Error(), http.StatusBadRequest)
 		return
