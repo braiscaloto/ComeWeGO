@@ -3,17 +3,14 @@ package main
 import (
 	"log"
 
-	db "github.com/braiscaloto/Twittor-backend/DB"
+	"github.com/braiscaloto/Twittor-backend/bd"
 	"github.com/braiscaloto/Twittor-backend/handlers"
 )
 
 func main() {
-
-	if db.CheckConnectionDB() == 0 {
-		log.Fatal("No DB connection")
+	if bd.CheckConnectionDB() == 0 {
+		log.Fatal("Sin conexión a la BD")
 		return
 	}
-
-	handlers.Handlers()
-
+	handlers.Manejadores()
 }

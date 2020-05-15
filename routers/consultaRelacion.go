@@ -4,21 +4,21 @@ import (
 	"encoding/json"
 	"net/http"
 
-	db "github.com/braiscaloto/Twittor-backend/DB"
-	"github.com/braiscaloto/Twittor-backend/models"
+	"github.com/ptilotta/twittor/bd"
+	"github.com/ptilotta/twittor/models"
 )
 
-/*ConsultaRelacion compruebo si existe relación entre dos usuarios*/
+/*ConsultaRelacion chequea si hay relacion entre 2 usuarios */
 func ConsultaRelacion(w http.ResponseWriter, r *http.Request) {
 	ID := r.URL.Query().Get("id")
 
 	var t models.Relacion
-	t.UsuarioID = IDUser
+	t.UsuarioID = IDUsuario
 	t.UsuarioRelacionID = ID
 
 	var resp models.RespuestaConsultaRelacion
 
-	status, err := db.ConsultoRelacion(t)
+	status, err := bd.ConsultoRelacion(t)
 	if err != nil || status == false {
 		resp.Status = false
 	} else {

@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strconv"
 
-	db "github.com/braiscaloto/Twittor-backend/DB"
+	"github.com/braiscaloto/Twittor-backend/bd"
 )
 
-/*ListaUsuarios leo la lista de los usuarios*/
+/*ListaUsuarios leo la lista de los usuarios */
 func ListaUsuarios(w http.ResponseWriter, r *http.Request) {
 
 	typeUser := r.URL.Query().Get("type")
@@ -23,7 +23,7 @@ func ListaUsuarios(w http.ResponseWriter, r *http.Request) {
 
 	pag := int64(pagTemp)
 
-	result, status := db.LeoUsuariosTodos(IDUser, pag, search, typeUser)
+	result, status := bd.LeoUsuariosTodos(IDUsuario, pag, search, typeUser)
 	if status == false {
 		http.Error(w, "Error al leer los usuarios", http.StatusBadRequest)
 		return

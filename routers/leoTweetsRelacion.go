@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	db "github.com/braiscaloto/Twittor-backend/DB"
+	"github.com/braiscaloto/Twittor-backend/bd"
 )
 
 /*LeoTweetsSeguidores lee los tweets de todos nuestros seguidores */
@@ -21,7 +21,7 @@ func LeoTweetsSeguidores(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	respuesta, correcto := db.LeoTweetsSeguidores(IDUser, pagina)
+	respuesta, correcto := bd.LeoTweetsSeguidores(IDUsuario, pagina)
 	if correcto == false {
 		http.Error(w, "Error al leer los tweets", http.StatusBadRequest)
 		return
