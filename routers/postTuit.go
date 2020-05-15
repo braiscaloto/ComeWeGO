@@ -9,7 +9,7 @@ import (
 	"github.com/braiscaloto/Twittor-backend/models"
 )
 
-/*GraboTweet permite grabar el tweet en la base de datos */
+/*PostTweet permite grabar el tweet en la base de datos */
 func PostTweet(w http.ResponseWriter, r *http.Request) {
 	var message models.Tweet
 	err := json.NewDecoder(r.Body).Decode(&message)
